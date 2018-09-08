@@ -1,0 +1,156 @@
+/* font-family: 'Marcellus SC', serif;
+font-family: 'Diplomata SC', cursive; */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background-color: gray;
+    font-family: 'Marcellus SC', serif;
+    height: fit-content;
+}
+
+#wrapper{
+    margin: auto;
+    padding: 10px 0;
+}
+
+#nav {
+    background-color: rgb(73, 73, 73);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    left: 5%;
+    top: 10%;
+    height: fit-content;
+    width: 385px;;
+    padding: 30px;
+    background-color: gray;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1;
+    overflow: auto;
+    box-shadow: 5px 5px 10px;
+    border: 1px solid black;
+}
+
+#modal h1 {
+    font-size: 18pt;
+    color: #340201;
+    font-family: 'Diplomata SC', cursive;
+    max-width: 400px;
+}
+#modal h2 {
+    font-size: 24pt;
+    color: white;
+}
+#modal h5 {
+    border-bottom: 1px solid black;
+    color: rgb(41, 41, 41);
+}
+
+#modal p {
+    border-bottom: 1px solid black;
+}
+
+#nav img {
+    width: 100%;
+    max-height: 230px;
+    margin-bottom: 10px;
+}
+
+#modal ul li{
+    color: white;
+    display:block;
+}
+
+#gotImg {
+    padding-top:20px;
+}
+
+#gotImg img {
+    width: 100%;
+}
+
+#crows {
+    display:none;
+}
+
+@media only screen and (min-width: 481px){
+    #nav img {
+        display: inline-block;
+        width: 45%;
+    }
+
+    #nav {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    #modal {
+        left: 25%;
+        width: fit-content;
+    }
+
+    #modal h1 {
+        font-size: 24pt;
+    }
+    #gotImg{
+        text-align: center;
+    }
+    #gotImg img {
+        width: 400px;
+    }
+
+    #nav img.stark{
+        transition: box-shadow 1s;
+    }
+    #nav img.lannister{
+        transition: box-shadow 1s;
+    }
+    #nav img.baratheon{
+        transition: box-shadow 1s;
+    }
+    #nav img.targaryen{
+        transition: box-shadow 1s;
+    }
+
+    #nav img.stark:hover {
+        box-shadow: 5px 5px 90px white;
+    }
+    #nav img.lannister:hover {
+        box-shadow: 5px 5px 90px #b40e0b;
+    }
+    #nav img.baratheon:hover {
+        box-shadow: 5px 5px 90px #ecbe06;
+    }
+    #nav img.targaryen:hover {
+        
+        box-shadow: 5px 5px 90px #06a113;
+    }
+    .container-fluid {
+        height: 100%;
+    } 
+}
+
+@media only screen and (min-width: 1024px){
+    #nav img {
+        display: inline-block;
+        width: 24%;
+    }
+    #modal {
+        left: 35%;
+    }
+    #crows{
+        display: block;
+    }
+}

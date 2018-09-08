@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Marcellus+SC" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div id="wrapper">
+            <div id="nav">
+                <img id="362" class="stark" src="stark.jpg" alt="">
+                <img id="229" class="lannister" src="lannister.jpg" alt="">
+                <img id="17" class="baratheon" src="baratheon.png" alt="">
+                <img id="378" class="targaryen" src="targaryen.jpg" alt="">
+            </div>
+            <div id="modal"></div>
+            <div id="gotImg">
+                <img src="Game-of-Thrones.png" alt="">
+            </div>
+            <div id="crows">
+                <img src="crows.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+
+        $(document).ready(function () {
+            clickMeNow();
+            function clickMeNow() {
+
+
+
+                $('#nav img').on("click", function () {
+                    var span = document.getElementsByClassName("close")[0];
+                    var modal = document.getElementById('modal');
+                    var houseNum = $(this).attr("id");
+                    // alert("houseNum= " + houseNum);
+                    modal.style.display = "block";
+
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+
+                    $.get("https://anapioficeandfire.com/api/houses/" + houseNum, function (stuff) {
+                        console.log();
+                        var content = "";
+                        content += "<h5>House Name:</h5>";
+                        content += "<h1>" + stuff.name + "</h1>";
+                        content += "<h5>Region: </h5>";
+                        content += "<h2>" + stuff.region + "</h2>";
+                        content += "<h5>Quote: </h5>";
+                        content += "<h2>" + stuff.words + "</h2>";
+                        content += "<h5>TITLES:</h5><ul>";
+
+                        for (var i = 0; i < stuff.titles.length + 1; i++) {
+                            content += "<li>" + stuff.titles[i] + "</li>";
+                        }
+                        content += "</ul>";
+                        content += "<p>Click below to close</p>"
+                        $("#modal").html(content);
+                    }, "json");
+
+
+
+
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- document.getElementById("#" + houseNum).onclick = function () {
+                    
+} -->
