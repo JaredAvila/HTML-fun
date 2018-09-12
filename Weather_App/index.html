@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>This Humble App of Mine</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="showcase">
+        <img src="cloud.png" alt="">
+    </div>
+    <div class="container">
+        <form action="" id="form1">
+            <h3>Enter a city...</h3>
+            <input type="text" name="city">
+            <button type="submit" id="sub">submit</button>
+        </form>
+    </div>
+    <h1>Whether or not?</h1>
+    <h2 id="cityname" ></h2>
+
+
+    <!--http://api.openweathermap.org/data/2.5/weather?q=Sunnyvale&APPID=3a7e4c95c0333ec8406259e91cb89bc4-->
+</body>
+
+
+<script>
+
+    function clicked() {
+        var x = document.getElementById("form1");
+        var y = x.elements["city"].value;
+        return y;
+    }
+
+    $("document").ready(function () {
+
+        $("#sub").on("click", function () {
+            var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+            var cityname = clicked();
+            url = url + cityname + "&APPID=3a7e4c95c0333ec8406259e91cb89bc4";
+            $.get(url, function (res) {
+                var temp = Math.round((res["main"]["temp"]) * (9 / 5) - 459.67);
+                var name = res["name"];
+                $("#cityname").html("The Temperature in " + name + " is " + temp + " degrees Fahrenheit.");
+
+            }, "json");
+            return false;
+        });
+
+    });
+
+
+</script>
+
+</html>

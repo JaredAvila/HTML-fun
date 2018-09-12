@@ -1,0 +1,28 @@
+.container{
+    display: inline-block;
+    width: 5%;
+    margin: auto;
+    margin-top:100px;
+    text-align: center;
+    padding: 200px;
+    border-radius: 50%;
+    box-shadow: 16px 1px 1px black;
+}
+h3{
+    width: 150px
+}
+
+.showcase{
+    display: inline-block;
+}
+
+img{
+    width: 50%;
+}
+h1{
+    font-size: 50pt;
+    padding-left: 50px;
+}
+h2{
+    color: rgb(88, 18, 88);
+}
